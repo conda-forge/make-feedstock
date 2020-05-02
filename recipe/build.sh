@@ -2,7 +2,7 @@
 set -ex
 
 show_errors_and_exit() {
-    find test -name '*.diff*' -print -exec cat '{}' \;
+    find tests -name '*.diff*' -print -exec cat '{}' \;
     exit 1
 }
 
