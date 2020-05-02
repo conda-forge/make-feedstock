@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -ex
 
+show_errors_and_exit() {
+    find test -name '*.diff*' -print -exec cat '{}' \;
+    exit 1
+}
+
 if [[ "$(uname)" == 'Linux' ]]; then
   rm -f tests/scripts/functions/wildcard
 fi
@@ -15,7 +20,7 @@ fi
 # bootstrap building make without make
 bash build.sh
 # make
-./make check
+./make check || show_errors_and_exit
 ./make install
 
 ln -s make $PREFIX/bin/gmake
