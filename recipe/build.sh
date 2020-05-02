@@ -17,3 +17,5 @@ bash build.sh
 # make
 ./make check
 ./make install
+
+ln -s make $PREFIX/bin/gmake

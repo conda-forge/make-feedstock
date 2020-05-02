@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
 
 requirements:
@@ -24,6 +24,7 @@ requirements:
 test:
   commands:
     - $PREFIX/bin/make --help  # [unix]
+    - $PREFIX/bin/gmake --help  # [unix]
     - '"%LIBRARY_BIN%\gnumake.exe" --help'  # [win]
     - '"%LIBRARY_BIN%\make.exe" --help'  # [win]
 
