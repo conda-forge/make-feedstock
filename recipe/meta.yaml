@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
 
 requirements:
@@ -24,12 +24,14 @@ requirements:
 test:
   commands:
     - $PREFIX/bin/make --help  # [unix]
+    - $PREFIX/bin/gmake --help  # [unix]
     - '"%LIBRARY_BIN%\gnumake.exe" --help'  # [win]
     - '"%LIBRARY_BIN%\make.exe" --help'  # [win]
 
 about:
   home: https://www.gnu.org/software/make/
-  license: GPLv3
+  license: GPL-3.0-or-later
+  license_family: GPL
   license_file: COPYING
   summary: >-
     GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
