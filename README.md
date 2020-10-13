@@ -5,11 +5,11 @@ Home: https://www.gnu.org/software/make/
 
 Package license: GPLv3
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/make-feedstock/blob/master/LICENSE.txt)
 
 Summary: GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
 
-
+Documentation: https://www.gnu.org/software/make/manual/
 
 Current build status
 ====================
@@ -26,7 +26,7 @@ Current build status
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/make-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/make-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
@@ -43,6 +43,13 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
+              <td>linux_64_target_platformlinux-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=615&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=linux&configuration=linux_64_target_platformlinux-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_aarch64_target_platformlinux-aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=615&branchName=master">
@@ -57,24 +64,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_target_platformlinux-64</td>
+              <td>osx_64_target_platformosx-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=615&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=linux&configuration=linux_target_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=osx&configuration=osx_64_target_platformosx-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_target_platformosx-64</td>
+              <td>win_64_target_platformwin-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=615&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=osx&configuration=osx_target_platformosx-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_target_platformwin-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=615&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=win&configuration=win_target_platformwin-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/make-feedstock?branchName=master&jobName=win&configuration=win_64_target_platformwin-64" alt="variant">
                 </a>
               </td>
             </tr>
@@ -179,7 +179,4 @@ Feedstock Maintainers
 
 * [@asmeurer](https://github.com/asmeurer/)
 * [@scopatz](https://github.com/scopatz/)
-
-
-<!-- dummy commit to enable rerendering -->
 
