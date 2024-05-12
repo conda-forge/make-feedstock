@@ -15,7 +15,7 @@ else
   config_opts=""
 fi
 
-./configure --prefix=$PREFIX ${config_opts}
+./configure --prefix=$PREFIX ${config_opts} || { cat config.log; exit 1; }
 # bootstrap building make without make
 bash build.sh
 # make
