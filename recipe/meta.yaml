@@ -1,3 +1,4 @@
+{% set bootstrapping = os.environ.get('CONDA_BUILD_BOOTSTRAPPING', '') %}
 # Jinja variables help maintain the recipe as you'll update the version only here.
 {% set version = "4.3" %}
 {% set sha256 = "e05fdde47c5f7ca45cb697e973894ff4f5d79e13b750ed57d7b66d8defc78e19" %}
@@ -12,15 +13,25 @@ source:
   sha256: {{ sha256 }}
 
 build:
+{% if bootstrapping == 'yes' %}
+  # Please increment by two
+  number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
+  # Keep above the number of the _bootstrapping package
   number: 1
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+{% endif %}
   detect_binary_files_with_prefix: false
 
 requirements:
   build:
+{% if bootstrapping != 'yes' %}
     - libtool  # [unix]
+    - bash     # [unix]
+{% endif %}
     - {{ compiler("c") }}        # [unix]
     - {{ compiler("m2w64_c") }}  # [win]
-    - bash  # [unix]
     - make  # [build_platform != target_platform]
   host:
   run:
