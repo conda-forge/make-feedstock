@@ -19,4 +19,3 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
 else
   make install
 fi
-ln -s $PREFIX/bin/make $PREFIX/bin/gmake
