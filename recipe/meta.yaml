@@ -18,7 +18,9 @@ build:
 requirements:
   build:
     - libtool  # [unix]
+    - {{ stdlib("c") }}          # [unix]
     - {{ compiler("c") }}        # [unix]
+    - {{ stdlib("m2w64_c") }}    # [win]
     - {{ compiler("m2w64_c") }}  # [win]
     - bash  # [unix]
     - make  # [build_platform != target_platform]
