@@ -1,24 +1,23 @@
-# Jinja variables help maintain the recipe as you'll update the version only here.
-{% set version = "4.3" %}
-{% set sha256 = "e05fdde47c5f7ca45cb697e973894ff4f5d79e13b750ed57d7b66d8defc78e19" %}
+{% set version = "4.4.1" %}
 
 package:
   name: make
   version: {{ version }}
 
 source:
-  fn: make-{{ version }}.tar.bz2
   url: https://ftp.gnu.org/gnu/make/make-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: false
 
 requirements:
   build:
     - libtool  # [unix]
+    - {{ stdlib("c") }}          # [unix]
     - {{ compiler("c") }}        # [unix]
+    - {{ stdlib("m2w64_c") }}    # [win]
     - {{ compiler("m2w64_c") }}  # [win]
     - bash  # [unix]
     - make  # [build_platform != target_platform]
@@ -27,9 +26,9 @@ requirements:
 
 test:
   commands:
-    - $PREFIX/bin/make --help  # [unix]
-    - '"%LIBRARY_BIN%\gnumake.exe" --help'  # [win]
-    - '"%LIBRARY_BIN%\make.exe" --help'  # [win]
+    - $PREFIX/bin/make --help               # [unix]
+    - '%LIBRARY_BIN%\gnumake.exe --help'    # [win]
+    - '%LIBRARY_BIN%\make.exe --help'       # [win]
 
 about:
   home: https://www.gnu.org/software/make/
@@ -43,3 +42,4 @@ extra:
   recipe-maintainers:
     - asmeurer
     - scopatz
+    - h-vetinari
