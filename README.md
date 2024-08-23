@@ -15,14 +15,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/make-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/make-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -207,5 +200,6 @@ Feedstock Maintainers
 =====================
 
 * [@asmeurer](https://github.com/asmeurer/)
+* [@h-vetinari](https://github.com/h-vetinari/)
 * [@scopatz](https://github.com/scopatz/)
 
