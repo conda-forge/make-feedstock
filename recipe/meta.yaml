@@ -9,7 +9,7 @@ source:
   sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
 
 requirements:
@@ -19,6 +19,8 @@ requirements:
     - {{ compiler("c") }}        # [unix]
     - {{ stdlib("m2w64_c") }}    # [win]
     - {{ compiler("m2w64_c") }}  # [win]
+    # build wants to find `gcc` binary
+    - gcc                        # [win]
     - bash  # [unix]
     - make  # [build_platform != target_platform]
   host:
