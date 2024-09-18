@@ -9,3 +9,6 @@ if errorlevel 1 exit 1
 
 copy .\\GccRel\\gnumake.exe  %LIBRARY_BIN%\\make.exe
 if errorlevel 1 exit 1
+
+copy .\\GccRel\\gnumake.exe  %LIBRARY_BIN%\\mingw32-make.exe
+if errorlevel 1 exit 1
