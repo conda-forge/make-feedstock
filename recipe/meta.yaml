@@ -9,7 +9,7 @@ source:
   sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: false
 
 requirements:
@@ -28,9 +28,10 @@ requirements:
 
 test:
   commands:
-    - $PREFIX/bin/make --help               # [unix]
-    - '%LIBRARY_BIN%\gnumake.exe --help'    # [win]
-    - '%LIBRARY_BIN%\make.exe --help'       # [win]
+    - $PREFIX/bin/make --help                  # [unix]
+    - '%LIBRARY_BIN%\gnumake.exe --help'       # [win]
+    - '%LIBRARY_BIN%\make.exe --help'          # [win]
+    - '%LIBRARY_BIN%\mingw32-make.exe --help'  # [win]
 
 about:
   home: https://www.gnu.org/software/make/
