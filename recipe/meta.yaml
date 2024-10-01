@@ -28,9 +28,10 @@ requirements:
 
 test:
   commands:
-    - $PREFIX/bin/make --help               # [unix]
-    - '%LIBRARY_BIN%\gnumake.exe --help'    # [win]
-    - '%LIBRARY_BIN%\make.exe --help'       # [win]
+    - $PREFIX/bin/make --help                  # [unix]
+    - '%LIBRARY_BIN%\gnumake.exe --help'       # [win]
+    - '%LIBRARY_BIN%\make.exe --help'          # [win]
+    - '%LIBRARY_BIN%\mingw32-make.exe --help'  # [win]
 
 about:
   home: https://www.gnu.org/software/make/
