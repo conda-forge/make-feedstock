@@ -20,11 +20,14 @@ requirements:
   build:
     - if: unix
       then:
+        - bash
         - libtool
+    - if: unix or (target_platform == "win-arm64")
+      then:
         - ${{ stdlib("c") }}
         - ${{ compiler("c") }}
-        - bash
-    - if: win
+    # MinGW gcc is not available on win-arm64; MSVC is used there instead.
+    - if: win and (target_platform != "win-arm64")
       then:
         - ${{ stdlib("m2w64_c") }}
         - ${{ compiler("m2w64_c") }}
