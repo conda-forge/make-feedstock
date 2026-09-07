@@ -15,12 +15,12 @@ build:
 requirements:
   build:
     - libtool  # [unix]
-    - {{ stdlib("c") }}          # [unix]
-    - {{ compiler("c") }}        # [unix]
-    - {{ stdlib("m2w64_c") }}    # [win]
-    - {{ compiler("m2w64_c") }}  # [win]
-    # build wants to find `gcc` binary
-    - gcc                        # [win]
+    - {{ stdlib("c") }}          # [unix or (target_platform == "win-arm64")]
+    - {{ compiler("c") }}        # [unix or (target_platform == "win-arm64")]
+    - {{ stdlib("m2w64_c") }}    # [win and (target_platform != "win-arm64")]
+    - {{ compiler("m2w64_c") }}  # [win and (target_platform != "win-arm64")]
+    # MinGW gcc is not available on win-arm64; MSVC is used there instead.
+    - gcc                        # [win and (target_platform != "win-arm64")]
     - bash  # [unix]
     - make  # [build_platform != target_platform]
   host:
