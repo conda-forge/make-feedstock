@@ -1,0 +1,61 @@
+schema_version: 1
+
+context:
+  version: "4.4.1"
+
+package:
+  name: make
+  version: ${{ version }}
+
+source:
+  url: https://ftp.gnu.org/gnu/make/make-${{ version }}.tar.gz
+  sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
+
+build:
+  number: 4
+  prefix_detection:
+    ignore_binary_files: true
+
+requirements:
+  build:
+    - if: unix
+      then:
+        - libtool
+        - ${{ stdlib("c") }}
+        - ${{ compiler("c") }}
+        - bash
+    - if: win
+      then:
+        - ${{ stdlib("m2w64_c") }}
+        - ${{ compiler("m2w64_c") }}
+        # build wants to find `gcc` binary
+        - gcc
+    - if: build_platform != target_platform
+      then: make
+
+tests:
+  - script:
+      - if: unix
+        then:
+          - $PREFIX/bin/make --help
+          - test "$(readlink "$PREFIX/bin/gmake")" = make
+          - $PREFIX/bin/gmake --version
+      - if: win
+        then:
+          - '%LIBRARY_BIN%\gnumake.exe --help'
+          - '%LIBRARY_BIN%\make.exe --help'
+          - '%LIBRARY_BIN%\mingw32-make.exe --help'
+
+about:
+  homepage: https://www.gnu.org/software/make/
+  license: GPL-3.0-or-later
+  license_file: COPYING
+  summary: >-
+    GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
+  documentation: https://www.gnu.org/software/make/manual/
+
+extra:
+  recipe-maintainers:
+    - asmeurer
+    - scopatz
+    - h-vetinari
