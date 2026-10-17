@@ -10,6 +10,8 @@ package:
 source:
   url: https://ftp.gnu.org/gnu/make/make-${{ version }}.tar.gz
   sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
+  patches:
+    - patches/msvc-have-stdint.patch
 
 build:
   number: 4
@@ -20,11 +22,14 @@ requirements:
   build:
     - if: unix
       then:
+        - bash
         - libtool
+    - if: unix or (target_platform == "win-arm64")
+      then:
         - ${{ stdlib("c") }}
         - ${{ compiler("c") }}
-        - bash
-    - if: win
+    # MinGW gcc is not available on win-arm64; MSVC is used there instead.
+    - if: win and (target_platform != "win-arm64")
       then:
         - ${{ stdlib("m2w64_c") }}
         - ${{ compiler("m2w64_c") }}
